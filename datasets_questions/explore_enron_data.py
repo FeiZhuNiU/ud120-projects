@@ -17,6 +17,15 @@
 
 import pickle
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+enron_data = pickle.load(open("../final_project/final_project_dataset_unix.pkl", "rb"))
+cnt = 0
 
-
+# if isinstance(enron_data, dict):
+#     print(enron_data.keys())
+# print(enron_data['Lay']['total_payments'])
+for name in enron_data:
+    if enron_data[name]['total_payments'] == 'NaN':
+        cnt += 1
+    print(enron_data[name])
+print(cnt)
+print(len(enron_data))
